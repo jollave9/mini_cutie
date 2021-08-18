@@ -1,11 +1,9 @@
 import React,{useContext, useEffect, useState} from 'react'
 import {Button} from './Button.style'
 import Context from '../Context/Context'
-
 export default function NextQuestionButton() {
     const {state,setState} = useContext(Context)
     const [label,setLabel] = useState('Start')
-
 
     const handleClick = e => {
         switch (state) {
@@ -18,14 +16,19 @@ export default function NextQuestionButton() {
             case 'Q2':
                 setState('Q3')
                 break;
+            case 'Q3':
+                setState('Stop')
+                break;
             default:
                 break;
         }
     }
 
     useEffect(()=>{
-        if(state!=='intro')
+        if(state==='Q1' || state==='Q2')
         setLabel('Next Question')
+        else if(state==='Q3')
+        setLabel('Stop')
 
     },[state])
 

@@ -4,9 +4,8 @@ import Interviewer from './Interviewer'
 export const StyledInterviewer = styled(Interviewer)`
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
-
-    /* border: 1px solid; */
-
+    & p{
+        max-width: 60%;
+    }
 `

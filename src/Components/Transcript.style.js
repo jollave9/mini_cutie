@@ -5,16 +5,14 @@ export const StyledTranscript = styled(Transcript)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
-    /* border: 1px solid; */
     & p{
         width: 60%;
-        padding: 1rem;
+        padding: 1rem 2rem;
         background-color: bisque;
         height:100px;
         overflow-Y:auto;
     }
-    & h3{
+    & h4{
         margin: 0;
     }
 `

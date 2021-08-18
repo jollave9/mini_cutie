@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import logo from '../assets/CUTIE_LOGO.png'
+import Header from "../Components/Header";
 import {HomeContainer} from './HomeContainer.style'
 import {StyledVideo} from '../Components/Video.style'
 import {StyledInterviewer} from '../Components/Interviewer.style'
@@ -9,11 +9,12 @@ import Context from '../Context/Context'
 export default function Home() {
 
     const [state,setState] = useState('intro')
+    const [data,setData] = useState('')
 
     return (
         <>
-            <header><img src={logo} width={100} style={{margin:'0 30px'}}/></header>
-            <Context.Provider value={{state,setState}}>
+            <Header/>
+            <Context.Provider value={{state,setState,data,setData}}>
             <HomeContainer>
                 <StyledVideo/>
                 <Container>

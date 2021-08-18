@@ -1,10 +1,17 @@
 import Home from './Pages/Home'
+import Result from './Pages/Result'
+
 import { GlobalStyles } from "./GlobalStyles.style";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
     <div>
       <GlobalStyles/>
-      <Home/>
+
+      <Router>
+        <Route path='/' exact component={Home}/>
+        <Route path='/result' exact component={Result}/>
+      </Router>
     </div>
   );
 }
