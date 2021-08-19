@@ -6,16 +6,21 @@ import SentimentResult from '../Components/SentimentResult'
 import {ResultContainer} from './ResultContainer.style'
 import TranscriptResult from '../Components/TranscriptResult';
 import axios from 'axios';
+import { useLocation } from "react-router-dom";
+
 function Result() {
-    const [state,setState] = useState()
+    
+    let location = useLocation()
+    const [result,setResult] = useState()
+    
     useEffect(()=>{
         setTimeout(()=>{
-            axios.get('https://e1ca3fc570a1.ngrok.io/')
+            axios.get('http://localhost:5000/')
             .then(res=>{
-                setState(res.data[res.data.length-1])
+                setResult(res.data[res.data.length-1])
             })
         },1000)
-    },[])
+    },[location])
 
     const style = {
         display:'flex',
@@ -29,10 +34,10 @@ function Result() {
         <Header/>
         <div style={style}>
             <ResultContainer>
-                <VideoResult video = {state?.video}/>
-                <FaceExpressionResult faceExpression = {state?.faceExpression}/>
-                <TranscriptResult transcript = {state?.transcript}/>
-                <SentimentResult sentiment = {state?.sentiment}/>
+                <VideoResult video = {result?.video}/>
+                <FaceExpressionResult faceExpression = {result?.faceExpression}/>
+                <TranscriptResult transcript = {result?.transcript}/>
+                <SentimentResult sentiment = {result?.sentiment}/>
             </ResultContainer>
         </div>
         </>

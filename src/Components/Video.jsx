@@ -71,8 +71,8 @@ export default function Video({className}) {
       state==='Q1'&&startFaceAPI()
       state==='Q1'&&recorder.current.startRecording()
       if(state==='Stop'){
-        clearInterval(intervalId)
         canvasRef.current.getContext('2d').clearRect(0, 0, videoWidth, videoHeight)
+        clearInterval(intervalId)
         console.log(faceExpressionsCount.current)
       }
 
@@ -90,7 +90,7 @@ export default function Video({className}) {
           const config = {     
             headers: { 'content-type': 'multipart/form-data' }
           }
-          axios.post('https://e1ca3fc570a1.ngrok.io/',formData,config)
+          axios.post('http://localhost:5000/',formData,config)
           setRedirect(true)
       })
 

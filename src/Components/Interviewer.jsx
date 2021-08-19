@@ -20,14 +20,15 @@ export default function Interviewer({className}) {
     const [gif,setGif] = useState(nod)
 
     useEffect(()=>{
+        utterance = new SpeechSynthesisUtterance(intro)
+        speechSynthesis.speak(utterance)
         const firstQuestion = Questions.shift() // tell me about yourself
         const secondQuestion = Questions[Math.floor(Math.random()*4)]
         const secondQuestionIndex = Questions.indexOf(secondQuestion)
         secondQuestionIndex!==-1 && Questions.splice(secondQuestionIndex,1)
         const thirdQuestion = Questions[Math.floor(Math.random()*3)]
+
         setQuestion({firstQuestion,secondQuestion,thirdQuestion})
-        utterance = new SpeechSynthesisUtterance(intro)
-        speechSynthesis.speak(utterance)
     },[])
 
     useEffect(()=>{

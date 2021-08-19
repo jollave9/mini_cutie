@@ -31,4 +31,8 @@ con.connect(err=> {
         if (err) throw err;
         console.log("table created");
     });
+
+    con.end((err)=>{
+        console.log(err)
+    })
 });

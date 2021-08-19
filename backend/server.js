@@ -48,7 +48,7 @@ app.get('/',(req,res)=>{
     let query = `SELECT * FROM result`
     con.query(query, (err, result)=>{
         if (err) throw err;
-        // console.log(result);
+        // console.log('get');
         res.json(result)
     }) 
 })
@@ -56,7 +56,7 @@ app.get('/',(req,res)=>{
 app.post('/',upload.single('videoRecording'),(req,res)=>{
 
     let sentimentinfo = JSON.stringify(sentiment.analyze(req.body.transcript))
-    let query = `INSERT INTO result (faceExpression, transcript, video, sentiment) VALUES ('${req.body.faceExpressions}','${req.body.transcript}','https://e1ca3fc570a1.ngrok.io/${req.file.filename}','${sentimentinfo}')`
+    let query = `INSERT INTO result (faceExpression, transcript, video, sentiment) VALUES ('${req.body.faceExpressions}','${req.body.transcript}','http://localhost/${req.file.filename}','${sentimentinfo}')`
 
     con.query(query, (err, result)=>{
         if (err) throw err;
