@@ -9,11 +9,12 @@ import axios from 'axios';
 function Result() {
     const [state,setState] = useState()
     useEffect(()=>{
-        axios.get('http://192.168.1.8:5000/')
+        setTimeout(()=>{
+            axios.get('https://e1ca3fc570a1.ngrok.io/')
             .then(res=>{
                 setState(res.data[res.data.length-1])
             })
-
+        },1000)
     },[])
 
     const style = {

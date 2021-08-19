@@ -90,7 +90,7 @@ export default function Video({className}) {
           const config = {     
             headers: { 'content-type': 'multipart/form-data' }
           }
-          axios.post('http://localhost:5000/',formData,config)
+          axios.post('https://e1ca3fc570a1.ngrok.io/',formData,config)
           setRedirect(true)
       })
 

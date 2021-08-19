@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState,useRef } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import nod from '../assets/SPB_Nodding.gif'
 import headtilt from '../assets/SPB_SlightHeadTilt.gif'
 import slightnod from '../assets/SPB_SlightNod.gif'
